@@ -1,5 +1,5 @@
 <p align="center">
- <img src="https://i.imgur.com/rSyq3MW.png" alt="The Documentation Compendium"></a>
+// <img src="https://i.imgur.com/rSyq3MW.png" alt="The Documentation Compendium"></a>
 </p>
 
 <h3 align="center">The Documentation Compendium</h3>
