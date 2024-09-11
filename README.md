@@ -1,7 +1,7 @@
 <p align="center">
 </p>
 
-<h3 align="center">The Documentation Compendium</h3>
+<h3 align="center">Budgeting</h3>
 
 <div align="center">
 
