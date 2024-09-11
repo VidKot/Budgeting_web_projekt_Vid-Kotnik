@@ -1,0 +1,148 @@
+/*
+Created: 4. 09. 2024
+Modified: 4. 09. 2024
+Model: budgeting
+Database: MySQL 8.0
+*/
+
+-- Create tables section -------------------------------------------------
+
+-- Table uporabniki
+
+CREATE TABLE `uporabniki`
+(
+  `u_id` Int NOT NULL AUTO_INCREMENT,
+  `ime` Varchar(20) NOT NULL,
+  `priimek` Varchar(20) NOT NULL,
+  `pass` Varchar(200) NOT NULL,
+  `username` Varchar(20),
+  `rojen` Date,
+  `mail` Varchar(20) NOT NULL,
+  `telefon` Varchar(20),
+  `prof_pic` Varchar(2000),
+  `r_id` Int,
+  `m_id` Int,
+  PRIMARY KEY (`u_id`)
+)
+;
+
+CREATE INDEX `IX_Relationship3` ON `uporabniki` (`r_id`)
+;
+
+CREATE INDEX `IX_Relationship5` ON `uporabniki` (`m_id`)
+;
+
+ALTER TABLE `uporabniki` ADD UNIQUE `mail` (`mail`)
+;
+
+-- Table role
+
+CREATE TABLE `role`
+(
+  `r_id` Int NOT NULL AUTO_INCREMENT,
+  `admin` Varchar(200),
+  `user` Varchar(200),
+  PRIMARY KEY (`r_id`)
+)
+;
+
+-- Table mesta
+
+CREATE TABLE `mesta`
+(
+  `m_id` Int NOT NULL AUTO_INCREMENT,
+  `ime` Varchar(20) NOT NULL,
+  `posta` Varchar(20),
+  `d_id` Int,
+  PRIMARY KEY (`m_id`)
+)
+;
+
+CREATE INDEX `IX_Relationship4` ON `mesta` (`d_id`)
+;
+
+-- Table drzave
+
+CREATE TABLE `drzave`
+(
+  `d_id` Int NOT NULL AUTO_INCREMENT,
+  `ime` Varchar(200) NOT NULL,
+  `kratica` Varchar(3),
+  PRIMARY KEY (`d_id`)
+)
+;
+
+-- Table accaunt
+
+CREATE TABLE `accaunt`
+(
+  `a_id` Int NOT NULL AUTO_INCREMENT,
+  `ime` Varchar(200) NOT NULL,
+  `t_velikost` Varchar(200) NOT NULL,
+  `z_velikost` Varchar(200),
+  `zel_prihranki` Varchar(200),
+  `dept` Varchar(200),
+  `u_id` Int,
+  `t_id` Int,
+  PRIMARY KEY (`a_id`)
+)
+;
+
+CREATE INDEX `IX_Relationship7` ON `accaunt` (`u_id`)
+;
+
+CREATE INDEX `IX_Relationship8` ON `accaunt` (`t_id`)
+;
+
+-- Table tipi
+
+CREATE TABLE `tipi`
+(
+  `t_id` Int NOT NULL AUTO_INCREMENT,
+  `checking` Varchar(200),
+  `savings` Varchar(200),
+  `credit_card` Varchar(200),
+  `debit_card` Varchar(200),
+  PRIMARY KEY (`t_id`)
+)
+;
+
+-- Table nakupi
+
+CREATE TABLE `nakupi`
+(
+  `n_id` Int NOT NULL AUTO_INCREMENT,
+  `ime` Varchar(200) NOT NULL,
+  `cena` Int NOT NULL,
+  `trgovina` Varchar(200),
+  `datum` Date,
+  `racun_pic` Varchar(2000),
+  `a_id` Int,
+  PRIMARY KEY (`n_id`)
+)
+;
+
+CREATE INDEX `IX_Relationship9` ON `nakupi` (`a_id`)
+;
+
+-- Create foreign keys (relationships) section -------------------------------------------------
+
+ALTER TABLE `uporabniki` ADD CONSTRAINT `Relationship3` FOREIGN KEY (`r_id`) REFERENCES `role` (`r_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+;
+
+ALTER TABLE `mesta` ADD CONSTRAINT `Relationship4` FOREIGN KEY (`d_id`) REFERENCES `drzave` (`d_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+;
+
+ALTER TABLE `uporabniki` ADD CONSTRAINT `Relationship5` FOREIGN KEY (`m_id`) REFERENCES `mesta` (`m_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+;
+
+ALTER TABLE `accaunt` ADD CONSTRAINT `Relationship7` FOREIGN KEY (`u_id`) REFERENCES `uporabniki` (`u_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+;
+
+ALTER TABLE `accaunt` ADD CONSTRAINT `Relationship8` FOREIGN KEY (`t_id`) REFERENCES `tipi` (`t_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+;
+
+ALTER TABLE `nakupi` ADD CONSTRAINT `Relationship9` FOREIGN KEY (`a_id`) REFERENCES `accaunt` (`a_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+;
+
+
