@@ -9,13 +9,8 @@
     <div class="container">
         <h2>Welcome!</h2>
         
-        <form action="login.php" method="get">
-            <button type="submit">Login</button>
-        </form>
-        
-        <form action="register.php" method="get">
-            <button type="submit">Register</button>
-        </form>
+        <form action="prva.php" method="get">
+            <button type="submit">+</button>
     </div>
 </body>
 </html>
