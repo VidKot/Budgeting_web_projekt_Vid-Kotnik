@@ -5,10 +5,19 @@
   <link rel="stylesheet" href="style.css"> </head>
 <body>
   <header>
-    </header>
-
+  </header>
   <main>
+    <div class="side-buttons">
+      <button>Profile<button>
+      <button>Add account<button>
+      <button>Home<button>
+      <button>My card<button>
+      <button>Calander<button>
+      <button>Transactions<button>
+      <button>Contacts<button>
+    </div>
     <div class="buttons">
+      <button>Add card</button>
       <button>Top up</button>
       <button>Received</button>
       <button>Gift</button>
