@@ -8,19 +8,20 @@
   </header>
   <main>
     <div class="side-buttons">
-      <button>Profile<button>
-      <button>Add account<button>
-      <button>Home<button>
-      <button>My card<button>
-      <button>Calander<button>
-      <button>Transactions<button>
-      <button>Contacts<button>
+      <a href="register.php">Add account</a>
+      <a href="main.php">Home</a>
+      <a href="card.php">My card</a>
+      <a href="calander.php">Calander</a>
+      <a href="transaction.php">Transactions</a>
+      <a href="contacts.php">Contacts</a>
+    </div>
+    <div class="middle-button">
+      <a href="add_card.php">Add card</a>
     </div>
     <div class="buttons">
-      <button>Add card</button>
-      <button>Top up</button>
-      <button>Received</button>
-      <button>Gift</button>
+      <a href="add_money.php">Top up</a>
+      <a href="recived.php">Recived</a>
+      <a href="gift.php">Gift</a>
     </div>
 
     <section class="quick-transfer">
