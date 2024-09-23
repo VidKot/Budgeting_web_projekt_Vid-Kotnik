@@ -4,8 +4,6 @@
   <title>Wallet App</title>
   <link rel="stylesheet" href="style.css"> </head>
 <body>
-  <header>
-  </header>
   <main>
     <div class="side-buttons">
       <a href="register.php">Add account</a>
@@ -30,15 +28,12 @@
         <label for="amount">Amount:</label>
         <input type="number" id="amount" name="amount">
         <select name="currency">
-          <option value="USD">USD</option>
-          </select>
+          <option value="EUR">EUR</option>
+        </select>
         <button type="submit">Send</button>
       </form>
     </section>
   </main>
-
-  <footer>
-    <h2>Subscribe Transactions</h2>
-  </footer>
+  <h2>Transactions</h2>
 </body>
 </html>
