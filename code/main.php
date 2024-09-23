@@ -39,6 +39,6 @@
 
   <footer>
     <h2>Subscribe Transactions</h2>
-    </footer>
+  </footer>
 </body>
 </html>
