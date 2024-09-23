@@ -19,7 +19,7 @@
                 <form>
                     <label for="amount">Amount:</label>
                     <input type="number" id="amount" name="amount">
-                    
+                    <select name="currency">
                     <option value="EUR">EUR</option>
                     </select>
                     <button type="submit">Send</button>
