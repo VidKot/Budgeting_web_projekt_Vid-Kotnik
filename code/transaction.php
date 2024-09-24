@@ -1,8 +1,16 @@
+<?php
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT name, date, amount FROM transactions ORDER BY date DESC";
+$result = $conn->query($sql);
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <title>Wallet App</title>
-        <link rel="stylesheet" href="style.css"> 
+        <link rel="stylesheet" href="trans.css"> 
     </head>
     <body>
         <main>
@@ -27,5 +35,26 @@
             </section>
         </main>
         <h2>Transactions</h2>
+        <div class="transaction-list">
+            <?php
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    echo '<div class="transaction-item">';
+                    echo '<div class="transaction-info">';
+                    echo '<div class="transaction-logo"></div>';
+                    echo '<div>';
+                    echo '<div class="transaction-name">' . $row["name"] . '</div>';
+                    echo '<div class="transaction-date">' . date('d M Y', strtotime($row["date"])) . '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '<div class="transaction-amount">- $' . number_format(abs($row["amount"]), 2, ',', '.') . '</div>';
+                    echo '</div>';
+                }
+            } else {
+                echo "No transactions found.";
+            }
+            $conn->close();
+            ?>
+        </div>
     </body>
 </html>
