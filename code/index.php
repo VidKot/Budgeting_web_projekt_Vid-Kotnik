@@ -8,7 +8,7 @@
 </head>
 <body class="bg-gray-100">
   <!-- Container -->
-  <div class="w-full h-full relative bg-[#F5F5F5]">
+  <div class="w-full h-full relative bg-[#F5F5F5] flex items-center justify-center min-h-screen">
     
     <!-- Background Section for Desktop -->
     <div class="absolute w-full h-[1057px] bg-gradient-to-r from-[#141E30] to-[#243B55] top-0 left-0">
@@ -29,7 +29,7 @@
     </div>
 
     <!-- Content Section with Text and Buttons -->
-    <div class="absolute flex flex-col justify-start items-start gap-16 p-6 bg-white w-[429px] h-[1060px] left-[507px] top-0">
+    <div class="relative flex flex-col justify-start items-start gap-16 p-6 bg-white w-[429px] h-[1060px]">
       <!-- Hello Section -->
       <div class="flex justify-center items-center gap-[152px] w-[134px]">
         <div class="text-[#01101B] text-[16px] font-medium font-['Plus_Jakarta_Sans']">Hello</div>
